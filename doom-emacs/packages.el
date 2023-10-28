@@ -67,3 +67,5 @@
 (package! nursery :recipe (:host github :repo "chrisbarrett/nursery" :branch "main"))
 
 (package! Emacs-langtool :recipe (:host github :repo "mhayashi1120/Emacs-langtool" :branch "master"))
+
+(package! gnuplot)

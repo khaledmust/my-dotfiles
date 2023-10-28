@@ -21,6 +21,12 @@
 
 (set-default-coding-systems 'utf-8)
 
+(defun km/arabic-lang ()
+  "Changes the org buffer to support both arabic and english"
+  (interactive)
+  (setq bidi-paragraph-direction nil
+      bidi-display-reordering t))
+
 (setq display-line-numbers-type t)
 
 ;; Setting my picture for the dashboard.
@@ -281,6 +287,7 @@ capture was not aborted."
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp .t)
+   (gnuplot .t)
    ))
 
 ;;(setq deft-directory "~/My Notes")
@@ -323,8 +330,8 @@ capture was not aborted."
   (defvar blog-capture-template
     "#+hugo_base_dir: /home/khaled/projects/personal-blog
 #+hugo_section: posts
-#+hugo_auto_set_lastmod: t
 #+options: tex:dvisvgm
+#+hugo_auto_set_lastmod: t
 #+macro: kbd @@html:<kbd>$1</kbd>@@
 
 #+title: %(format \"%s\" blog--current-post-name)
@@ -495,3 +502,6 @@ File name is updated to include the same date and current title."
     (apply original-function args)))
 ;; Runs the function `lsp--gdscript-ignore-errors` around `lsp--get-message-type` to suppress unknown notification errors.
 (advice-add #'lsp--get-message-type :around #'lsp--gdscript-ignore-errors)
+
+(load "/home/khaled/.config/doom/my-packages/fitness.el")
+(load "/home/khaled/.config/doom/my-packages/health-template.el")
